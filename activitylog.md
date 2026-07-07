@@ -64,3 +64,11 @@ This file tracks the step-by-step progress and implementation details of the URL
 - **Action**: Configured Celery tasks to run in eager execution mode (`CELERY_TASK_ALWAYS_EAGER = True`) during tests.
 - **Action**: Added cache clearing routines between tests to guarantee rate-limiting test isolation.
 - **Action**: Executed the test suite using `manage.py test`, resulting in 9 successful test runs verifying all backend subsystems.
+
+### Step 12: Git Repository Setup & Initial Commit
+- **Action**: Created a `.gitignore` file to filter out local virtual environment resources (`.venv/`), databases (`db.sqlite3`), Python bytecaches (`__pycache__/`), and logs.
+- **Action**: Initialized a new local Git repository, set the primary branch name to `main`, staged all codebase files, and performed the initial commit.
+
+### Step 13: Push to GitHub Remote Repository
+- **Action**: Configured the remote repository origin to point to `https://github.com/interioroku/URL-Shortener.git`.
+- **Action**: Pushed the main branch to the GitHub repository and configured it to track `origin/main`.
