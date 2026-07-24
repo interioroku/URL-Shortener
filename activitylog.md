@@ -72,3 +72,22 @@ This file tracks the step-by-step progress and implementation details of the URL
 ### Step 13: Push to GitHub Remote Repository
 - **Action**: Configured the remote repository origin to point to `https://github.com/interioroku/URL-Shortener.git`.
 - **Action**: Pushed the main branch to the GitHub repository and configured it to track `origin/main`.
+
+### Step 14: Analytics Serializers and Views Implementation
+- **Action**: Created serializers for `DailyClickCount` and `CountryClickCount` in `apps/analytics/serializers.py`.
+- **Action**: Implemented `URLAnalyticsView` in `apps/analytics/views.py` to retrieve aggregated statistics for any given short code.
+- **Action**: Added `TriggerAggregationView` to allow triggering aggregation manual runs via POST requests.
+- **Action**: Configured URL routes in `apps/analytics/urls.py` and included them in the main `core/urls.py`.
+
+### Step 15: Celery Beat Periodic Task Scheduling
+- **Action**: Created the background Celery task `aggregate_click_data` in `apps/analytics/tasks.py`.
+- **Action**: Configured `CELERY_BEAT_SCHEDULE` in `core/settings.py` to run the click metrics aggregation periodically (hourly).
+
+### Step 16: Django Admin Model Registration
+- **Action**: Registered `ShortURL` and `ClickEvent` in `apps/urls/admin.py` with tailored list displays, filtering options, and search fields.
+- **Action**: Registered `DailyClickCount` and `CountryClickCount` in `apps/analytics/admin.py` with search and filters.
+
+### Step 17: Verification and Analytics Testing
+- **Action**: Implemented unit tests for the aggregation services and integration tests for the API analytics endpoints in `apps/analytics/tests.py`.
+- **Action**: Verified the entire test suite, running 15 successful test cases covering all shortener and analytics components.
+

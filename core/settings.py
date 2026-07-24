@@ -167,5 +167,14 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'UTC'
 
+from celery.schedules import crontab
+CELERY_BEAT_SCHEDULE = {
+    'aggregate-click-data-hourly': {
+        'task': 'apps.analytics.tasks.aggregate_click_data',
+        'schedule': crontab(minute=0),
+    },
+}
+
+
 # Hash salt for URL shortener
 URL_SHORTENER_SALT = "default_django_salt_for_url_shortener_12345"

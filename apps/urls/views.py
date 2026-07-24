@@ -71,6 +71,6 @@ class RedirectView(View):
         original_url = RedirectService.resolve_short_code(short_code, request_meta)
         if not original_url:
             raise Http404("Shortened URL not found or has expired.")
-            
+        
         # Return 302 Found redirect
         return HttpResponseRedirect(original_url)

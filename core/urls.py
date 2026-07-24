@@ -21,6 +21,7 @@ from apps.urls.views import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/urls/', include('apps.urls.urls')),
+    path('api/analytics/', include('apps.analytics.urls')),
     path('<str:short_code>', RedirectView.as_view(), name='redirect_url_short'),
     path('<str:short_code>/', RedirectView.as_view(), name='redirect_url'),
 ]
